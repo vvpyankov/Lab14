@@ -21,14 +21,15 @@ namespace lab14zadacha
     {
         static void Main(string[] args)
         {
+
         }
     }
     abstract class Animal
     {
-       public abstract string animalType { get; set; }
+       public abstract string AnimalType { get; set; }
         public abstract void Say();
 
-        public Animal(string animalType)
+        public Animal(string animalType) 
         {
             this.animalType = animalType;
         }
