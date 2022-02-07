@@ -17,27 +17,34 @@ using System.Threading.Tasks;
 
 namespace lab14zadacha
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
+            Cat cat = new Cat("Cat", "Meooow!");
+            cat.ShowInfo();
 
+            Dog dog = new Dog("Dog", "Bow-bow-bow!");
+            dog.ShowInfo();
+
+            Console.ReadKey();
         }
     }
+
     abstract class Animal
     {
-       public abstract string AnimalType { get; set; }
+        public abstract string AnimalType { get; set; }
         public abstract void Say();
 
-        public Animal(string animalType) 
+        public Animal(string animalType)
         {
-            this.animalType = animalType;
+            AnimalType = animalType;
         }
-        public string AnimalType
+        /*public string AnimalType
         {
-            get { return animalType; }
-            set { animalType = value; }
-        }
+            get => animalType;
+            set => animalType = value;
+        }*/
         public void ShowInfo()
         {
             Console.WriteLine("I am a {0}", AnimalType);
@@ -46,10 +53,12 @@ namespace lab14zadacha
     }
     class Cat : Animal
     {
+        string say;
         string animalType;
-        public Cat (string animalType)
+        public Cat(string animalType, string say)
+            : base(animalType)
         {
-            AnimalType = animalType;
+            this.say = say;
         }
         public override string AnimalType
         {
@@ -60,7 +69,7 @@ namespace lab14zadacha
             }
             set
             {
-                animalType = "Cat";
+                animalType = value;
             }
         }
         public override void Say()
@@ -70,10 +79,12 @@ namespace lab14zadacha
     }
     class Dog : Animal
     {
+        string say;
         string animalType;
-        public Dog (string animalType)
+        public Dog(string animalType, string say)
+            : base(animalType)
         {
-            AnimalType = animalType;
+            this.say = say;
         }
         public override string AnimalType
         {
@@ -84,7 +95,7 @@ namespace lab14zadacha
             }
             set
             {
-                animalType = "Dog";
+                animalType = value;
             }
         }
         public override void Say()
